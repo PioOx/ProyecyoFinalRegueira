@@ -1,0 +1,15 @@
+{% extends 'AppWeb/index.html' %}
+
+{% load static %}
+
+{% block dinamico1 %}
+
+<form action="" method="post">{% csrf_token %}
+<center>
+    {{form.as_p}}
+
+    <button type="submit">Crear cuenta</button>
+
+</form>
+</center>
+{% endblock  %}

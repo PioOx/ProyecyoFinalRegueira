@@ -1,0 +1,18 @@
+{% extends 'AppWeb/index.html' %}
+
+{% load static %}
+
+{% block dinamico1 %}
+
+<center>
+<form method="post"> {% csrf_token %}
+    Estas seguro que queres eliminar el post "{{object.Titulo}}" ?
+
+    <input type="submit" value="Eliminar">
+
+    <button>
+        <a href="{% url "lista" %}">Regresar a la Lista</a>
+    </button>
+</form>
+</center>
+{% endblock  %}

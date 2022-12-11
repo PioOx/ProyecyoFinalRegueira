@@ -1,0 +1,19 @@
+{% extends 'AppWeb/index.html' %}
+
+{% load static %}
+
+{% block dinamico1 %}
+
+{% for noticia in object_list %}
+<center>
+<ul>
+    {{noticia}}
+
+    <button>
+        <a href="{% url "detail" noticia.id %}">Leer mas...</a>
+    </button>
+</ul>
+</center>
+{% endfor %}
+
+{% endblock %}

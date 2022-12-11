@@ -11,7 +11,7 @@ from django.views.generic.list import ListView
 
 def inicio(request):
     imagenes = Avatar.objects.filter(user=request.user.id)
-    return render(request, "AppWeb\Templates\AppWeb\index.html", {"url":imagenes[0].imagen.url})
+    return render(request, "AppWeb\Templates\AppWeb\index.html") #,{"url":imagenes[0].imagen.url})
 
 class NoticiaCreateView(LoginRequiredMixin, CreateView):
     model = NoticiaModel

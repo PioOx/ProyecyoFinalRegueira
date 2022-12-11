@@ -19,7 +19,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="/">Inicio</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -47,6 +47,7 @@
                     {% if request.user.is_authenticated %}
                     <h1 class="mb-5">
                     Hola {{user.username}}, disfruta del Blog !</h1>
+                    <img src="{{url}}" alt="">
                     {% else %}
                     <h1 class="mb-5">Todos juntos hacemos al deporte, VAMOS ARGENTINA !</h1>
                     {% endif %}</h1>

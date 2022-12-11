@@ -9,7 +9,8 @@
 <h1><ul>{{object.Autor}}</ul></h1>
 <h2><ul>{{object.Titulo}}</ul></h2>
 <ul>{{object.Noticia}}</ul>
-<img src="{{url}}" alt="">
+<img src="{{ object.image_url|default_if_none:'#' }}" />
+
 
 {% if request.user.is_authenticated %}
 <button>

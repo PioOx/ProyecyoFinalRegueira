@@ -9,10 +9,11 @@
 <h1><ul>{{object.Autor}}</ul></h1>
 <h2><ul>{{object.Titulo}}</ul></h2>
 <ul>{{object.Noticia}}</ul>
-<img src="{{ object.image_url|default_if_none:'#' }}" />
+<img src="{{ object.Imagen.url }}" />
 
 
 {% if request.user.is_authenticated %}
+<center>
 <button>
     <a href="{% url "update" noticiamodel.id %}">Actualizar Info</a>
 </button>
@@ -20,10 +21,12 @@
 <button>
     <a href="{% url "delete" noticiamodel.id %}">Eliminar</a>
 </button>
+</center>
 {% else %}
 {{pass}}
 {% endif %}
 
+<center>
 <button>
     <a href="{% url "lista" %}">Regresar</a>
 </button>

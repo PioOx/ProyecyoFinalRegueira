@@ -4,8 +4,11 @@
 
 {% block dinamico1 %}
 
-<div class="container mt-5">
 
+Entiendo que hay muchas formas mejores de hacer esto, la verdad por un tema de tiempo de entrega y demas, decidi al menos tener algo para un comienzo, luego con el pasar de los dias ir mejorandolo poco a poco hasta llegar a un buen producto final.
+
+<div class="container mt-5">
+    <center>
     <form  method="post" class="form-group mb-5" style="text-align: justify" enctype="multipart/form-data">
 
         {% csrf_token %}
@@ -20,6 +23,7 @@
         <a class="btn btn-primary btn-sm" href="{% url 'Inicio' %}">Cancelar</a>
 
     </form>
+    </center>
 </div>
 
 {% endblock %}

@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'AppWeb/css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static "AppWeb/css/styles.css" %}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -27,9 +27,11 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         {% if request.user.is_authenticated %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "CrearNoticia" %}">Crear Post</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "funcion_imagen" %}">Crear Post</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "addAvatar" %}">Cambiar Foto</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "Edit" %}">Editar Perfil</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "Edit" %}">Editar Perfil
+                        <img id="img" class="img rounded-circle" alt="Perfil" height="50" width="50" src="{{img}}"></img>
+                        </a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "Logout" %}">Log Out</a></li>
                         {% else %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "Login" %}">Log In</a></li>
@@ -47,10 +49,14 @@
                     {% if request.user.is_authenticated %}
                     <h1 class="mb-5">
                     Hola {{user.username}}, disfruta del Blog !</h1>
-                    <img src="{{url}}" alt="">
                     {% else %}
                     <h1 class="mb-5">Todos juntos hacemos al deporte, VAMOS ARGENTINA !</h1>
                     {% endif %}</h1>
+                    
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                    method="GET">
+                        {% csrf_token %}
+</form>
 
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
@@ -60,44 +66,47 @@
                 </div>
                 <!-- Masthead Subheading-->
                 <p class="masthead-subheading font-weight-light mb-0">Futbol, Historia, Noticias y MUCHO MAS !</p>
-                <li class="nav-item mx-0 mx-lg-1">Empeza a leer y opinar <a class="nav-link py-3 px-0 px-lg-3 rounded"  href="{% url "lista" %}">AQUI</a></li>
+                <li class="nav-item mx-0 mx-lg-1">Empeza a leer y opinar...<br><a class="btn btn-dark" href="{% url "lista" %}">AQUI</a></li>
+                <li class="nav-item mx-0 mx-lg-1">Busca noticias de lo que te interesa...<br><a class="btn btn-dark"  href="{% url "buscador" %}">BUSCADOR</a></li>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                Agradecido con los conocimientos brindados hasta el momento, es la primera vez que tengo contacto con la programacion, fue bastante duro a decir verdad, una vez que vas practicando y practicando las cosas parecen ser mas sencillas, vamos por muchas horas de estudio mas y a seguir crediendo.
             </div>
         </header>
+        <div class="d-flex justify-content-center py-5" >
+            
         {% block dinamico1 %}
         
-        {% endblock  %}
-
-        {% block lista_noticias %}
-        
-        {% endblock lista_noticias %}
+        {% endblock  %}</div>
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <h4 class="text-uppercase mb-4">Ubicacion</h4>
                         <p class="lead mb-0">
-                            2215 John Daniel Drive
+                            Argentina, Buenos Aires
                             <br />
-                            Clark, MO 65243
+                            Capital Federal
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                        <h4 class="text-uppercase mb-4">Redes Sociales</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/JulianR95"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/ox_pio"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/julian-regueira-38b004221/"><i class="fab fa-fw fa-linkedin-in"></i></a>
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">Sobre mi</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
+                        Soy Docente Nacional de Educacion Fisica, ingresando al mundo IT.
                         </p>
                     </div>
                 </div>

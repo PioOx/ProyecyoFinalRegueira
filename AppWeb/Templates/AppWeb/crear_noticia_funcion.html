@@ -1,0 +1,19 @@
+{% extends "AppWeb/index.html" %}
+
+{% load static %}
+
+{% block dinamico1 %}
+
+{% if mensaje %}
+<div class='alert alert-info'>
+{{ mensaje }} <a target="_top" href="{% url "lista" %}">AQUI</a>
+</div>
+{% endif %}
+
+<form  role="form"  enctype="multipart/form-data" action="" method="POST" id="upload-image-form"> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Postear Noticia</button>
+</form>
+
+{% endblock %}

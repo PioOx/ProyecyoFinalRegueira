@@ -1,0 +1,33 @@
+{% extends "AppWeb/index.html" %}
+
+{% load static %}
+
+{% block dinamico1 %}
+
+<form action="" method="get">
+
+    <input type="text" name="Titulo" id="Titulo">
+
+    <input type="submit" value="Buscar">
+
+
+
+</form>
+
+{% if noticias %}
+
+    <ul>
+    {% for noticia in noticias  %}
+    
+        <li>Hay un post de {{noticia.Titulo}}, si queres leerlo entra <a href="{% url "detail" noticia.id %}">ACA</a></li>
+
+    {% endfor %}
+    <ul>
+
+    {% else %}
+
+        <p>Ingrese el nombre a buscar</p>
+
+{% endif %}
+
+{% endblock %}
